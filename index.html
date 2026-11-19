@@ -127,6 +127,9 @@ main{margin-left:52vw;min-height:100%}
 .slide .img{position:absolute;inset:-4%;background-size:cover;background-position:center}
 .slide.active .img{animation:kenburns 9s ease-out forwards}
 .slide:nth-child(even).active .img{animation-name:kenburns2}
+.gallery-video{position:absolute;z-index:1;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;visibility:hidden;transition:opacity .8s}
+.gallery.video-playing .gallery-video{opacity:1;visibility:visible}
+.gallery.video-playing .hero-copy{opacity:0;pointer-events:none}
 @keyframes kenburns{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.12) translate(-2%,-1.5%)}}
 @keyframes kenburns2{from{transform:scale(1.12) translate(2%,1%)}to{transform:scale(1.03) translate(0,0)}}
 .ph{display:grid;place-items:center}
@@ -380,8 +383,12 @@ footer p{margin:.3rem 0;opacity:.8}
 <div class="progress" aria-hidden="true"><span id="prog"></span></div>
 
 <!-- ============ LEFT: GALLERY ============ -->
-<section class="gallery" aria-label="Photos of the couple">
+<section class="gallery" aria-label="Pre-wedding video and photos of the couple">
   <div id="slides"></div>
+  <video class="gallery-video" id="introVideo" controls playsinline preload="none" aria-label="Pre-wedding video">
+    <source src="photos/pre-wedding.mp4" type="video/mp4">
+    Your browser does not support embedded video.
+  </video>
   <canvas id="petals" aria-hidden="true"></canvas>
   <div class="hero-copy">
     <p class="hero-tag">#ForeverOP</p>
@@ -607,7 +614,7 @@ function go(n,user){
   s[cur].classList.add('active'); void d[cur].offsetWidth; d[cur].classList.add('on');
   clearInterval(timer); timer=setInterval(()=>go(cur+1),6000);
 }
-function startShow(){ dotsEl.children[0].classList.add('on'); timer=setInterval(()=>go(cur+1),6000); }
+function startShow(){ clearInterval(timer); dotsEl.children[0].classList.add('on'); timer=setInterval(()=>go(cur+1),6000); }
 
 /* ---------- petals on the gallery ---------- */
 function petals(){
@@ -655,6 +662,7 @@ function burst(){
 
 /* ---------- intro sequence ---------- */
 const intro=document.getElementById('intro'), seal=document.getElementById('seal'), stage=document.getElementById('introStage'), letter=document.getElementById('letter');
+const gallery=document.querySelector('.gallery'), introVideo=document.getElementById('introVideo');
 document.body.style.overflow='hidden';
 seal.addEventListener('click',()=>{
   seal.classList.add('broken'); seal.disabled=true; burst();
@@ -662,10 +670,21 @@ seal.addEventListener('click',()=>{
   setTimeout(()=>{letter.classList.add('show'); document.getElementById('enter').focus({preventScroll:true});},750);
 });
 document.getElementById('enter').addEventListener('click',()=>{
+  gallery.classList.add('video-playing');
+  const playback=introVideo.play();
+  if(playback && typeof playback.catch==='function') playback.catch(()=>{
+    gallery.classList.remove('video-playing');
+    say('The video could not be played. Starting the photo slideshow instead.');
+    startShow();
+  });
   letter.classList.add('leave'); letter.classList.remove('show');
   setTimeout(()=>intro.classList.add('open'),250);
-  setTimeout(()=>{document.body.classList.add('ready'); document.body.style.overflow=''; startShow(); petals();},900);
+  setTimeout(()=>{document.body.classList.add('ready'); document.body.style.overflow=''; petals();},900);
   setTimeout(()=>{intro.classList.add('gone'); document.getElementById('menuBtn').focus({preventScroll:true});},1800);
+});
+introVideo.addEventListener('ended',()=>{
+  gallery.classList.remove('video-playing');
+  startShow();
 });
 
 /* ---------- menu ---------- */
