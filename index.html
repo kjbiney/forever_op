@@ -69,17 +69,21 @@ button{font:inherit;color:inherit}
    ========================================================= */
 .intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden}
 .intro.gone{display:none}
-.door{position:absolute;top:0;bottom:0;width:50.5%;background:
-  radial-gradient(circle at 30% 20%, #8e2a3a 0, transparent 55%),
-  radial-gradient(circle at 70% 90%, #3d0b14 0, transparent 60%),
-  var(--burgundy-deep);
-  transition:transform 1.4s cubic-bezier(.77,0,.18,1)}
-.door::after{content:"";position:absolute;inset:0;opacity:.13;background-image:
+.door{position:absolute;top:0;bottom:0;width:50.5%;background:var(--burgundy-deep);transition:transform 1.4s cubic-bezier(.77,0,.18,1)}
+.door-photo{position:absolute;z-index:0;inset:-8px;background-size:cover;background-position:center 42%;filter:blur(7px);transform:scale(1.04);animation:doorPhoto 18s infinite}
+.door-photo:nth-child(2){animation-delay:-12s}
+.door-photo:nth-child(3){animation-delay:-6s}
+.door::before{content:"";position:absolute;z-index:1;inset:0;background:
+  radial-gradient(circle at 30% 20%, #8e2a3acc 0, transparent 55%),
+  radial-gradient(circle at 70% 90%, #3d0b14e6 0, transparent 60%),
+  #3d0b14a6}
+.door::after{content:"";position:absolute;z-index:2;inset:0;opacity:.13;background-image:
   radial-gradient(circle at 50% 50%, transparent 38%, #F7C6A3 39%, #F7C6A3 40%, transparent 41%),
   radial-gradient(circle at 0 0, transparent 38%, #F7C6A3 39%, #F7C6A3 40%, transparent 41%);
   background-size:64px 64px}
 .door-l{left:0;box-shadow:inset -30px 0 60px -30px #000a}
 .door-r{right:0;box-shadow:inset 30px 0 60px -30px #000a}
+@keyframes doorPhoto{0%,20%{opacity:1}33%,93%{opacity:0}100%{opacity:1}}
 .intro.open .door-l{transform:translateX(-102%)}
 .intro.open .door-r{transform:translateX(102%)}
 
@@ -314,6 +318,8 @@ footer p{margin:.3rem 0;opacity:.8}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   #petals{display:none}
+  .door-photo{animation:none;opacity:0}
+  .door-photo:first-child{opacity:1}
 }
 </style>
 </head>
@@ -321,8 +327,16 @@ footer p{margin:.3rem 0;opacity:.8}
 
 <!-- ============ INTRO ============ -->
 <div class="intro" id="intro" role="dialog" aria-label="Wedding invitation">
-  <div class="door door-l"></div>
-  <div class="door door-r"></div>
+  <div class="door door-l" aria-hidden="true">
+    <span class="door-photo" style="background-image:url('photos/01-silhouette.jpeg')"></span>
+    <span class="door-photo" style="background-image:url('photos/03-embrace.jpeg')"></span>
+    <span class="door-photo" style="background-image:url('photos/04-together.jpeg')"></span>
+  </div>
+  <div class="door door-r" aria-hidden="true">
+    <span class="door-photo" style="background-image:url('photos/01-silhouette.jpeg')"></span>
+    <span class="door-photo" style="background-image:url('photos/03-embrace.jpeg')"></span>
+    <span class="door-photo" style="background-image:url('photos/04-together.jpeg')"></span>
+  </div>
 
   <div class="intro-stage" id="introStage">
     <p class="intro-kicker">You're invited to celebrate</p>
