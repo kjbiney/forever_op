@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/program.html",
+      "destination": "/program",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/program",
+      "destination": "/program.html"
+    }
+  ]
+}
