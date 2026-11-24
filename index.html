@@ -10,7 +10,7 @@ setTimeout(done,2500);})();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Obeng-Akrofi & Priscilla · #ForeverOP</title>
+<title>Obeng-Akrofi & Priscilla Birago · #ForeverOP</title>
 <link rel="icon" type="image/svg+xml" href="photos/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,6 +259,12 @@ main{margin-left:52vw;min-height:100%}
 .chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;padding:.4rem .85rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--bg);transition:border-color .2s, color .2s}
 .chip:hover{border-color:var(--accent);color:var(--accent)}
 @media (max-width:480px){.event{grid-template-columns:1fr}.date-block{border-right:0;border-bottom:1px solid var(--line);padding:0 0 1rem;display:flex;gap:.6rem;align-items:baseline;justify-content:flex-start;text-align:left}.date-block .dd{font-size:2.2rem}}
+.program-card{display:flex;align-items:center;gap:1.25rem;margin-top:1.5rem;padding:1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.program-card img{width:112px;height:112px;background:#fff}
+.program-card h3{font-family:var(--serif);font-size:1.45rem;font-weight:500;margin:0 0 .25rem}
+.program-card p{color:var(--ink-soft);margin:0 0 .6rem}
+.program-card a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+@media (max-width:480px){.program-card{align-items:flex-start;flex-direction:column}.program-card img{width:128px;height:128px}}
 
 /* directions */
 .venue{margin-bottom:3rem}
@@ -361,16 +367,16 @@ footer p{margin:.3rem 0;opacity:.8}
         <g class="half half-r" clip-path="url(#clipR)"><use href="#waxBody"/></g>
       </svg>
     </button>
-    <p class="intro-names">Obeng-Akrofi &amp; Priscilla</p>
+    <p class="intro-names">Obeng-Akrofi &amp; Priscilla Birago</p>
     <p class="intro-hint">Tap the seal to open</p>
   </div>
 
   <article class="letter" id="letter" aria-live="polite">
     <h2>A note from us</h2>
-    <img class="letter-mono" src="photos/monogram-full.jpeg" alt="Obeng-Akrofi and Priscilla's wedding monogram">
+    <img class="letter-mono" src="photos/monogram-full.jpeg" alt="Obeng-Akrofi and Priscilla Birago's wedding monogram">
     <p>Welcome, and thank you for being here. This page holds everything you need for our celebration, but more than that, it holds a little of the joy we feel as we begin this new chapter together.</p>
     <p>Each of you has played a part in our story. Your love, prayers and friendship brought us to this moment, and we can't imagine celebrating it without you.</p>
-    <p class="sign">With love and gratitude,<br>Obeng-Akrofi &amp; Priscilla</p>
+    <p class="sign">With love and gratitude,<br>Obeng-Akrofi &amp; Priscilla Birago</p>
     <button class="btn" id="enter">Open the invitation</button>
   </article>
 </div>
@@ -380,16 +386,17 @@ footer p{margin:.3rem 0;opacity:.8}
 <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i></i></button>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Site navigation">
-  <p class="d-names">Obeng-Akrofi &amp; Priscilla</p>
+  <p class="d-names">Obeng-Akrofi &amp; Priscilla Birago</p>
   <p class="d-tag">#ForeverOP</p>
   <nav>
     <a href="#countdown" style="--i:0">Countdown</a>
     <a href="#story" style="--i:1">Our story</a>
     <a href="#colours" style="--i:2">Our colours</a>
     <a href="#schedule" style="--i:3">Schedule</a>
-    <a href="#directions" style="--i:4">Directions</a>
-    <a href="#qa" style="--i:5">Q &amp; A</a>
-    <a href="#contact" style="--i:6">Contact</a>
+    <a href="program.html" style="--i:4">Traditional programme</a>
+    <a href="#directions" style="--i:5">Directions</a>
+    <a href="#qa" style="--i:6">Q &amp; A</a>
+    <a href="#contact" style="--i:7">Contact</a>
   </nav>
   <p class="d-foot">27 – 29 November 2026 · Kumasi, Ghana</p>
 </aside>
@@ -406,7 +413,7 @@ footer p{margin:.3rem 0;opacity:.8}
   <canvas id="petals" aria-hidden="true"></canvas>
   <div class="hero-copy">
     <p class="hero-tag">#ForeverOP</p>
-    <h1 class="hero-names" id="heroNames" aria-label="Obeng-Akrofi and Priscilla"></h1>
+    <h1 class="hero-names" id="heroNames" aria-label="Obeng-Akrofi and Priscilla Birago"></h1>
     <p class="hero-line">We thought it was a friendship. God was writing a love story.</p>
     <div class="dots" id="dots" role="tablist" aria-label="Choose photo"></div>
   </div>
@@ -425,7 +432,7 @@ footer p{margin:.3rem 0;opacity:.8}
         <div class="unit"><span class="num" id="cd-m"><span>0</span></span><label>Minutes</label></div>
         <div class="unit"><span class="num" id="cd-s"><span>0</span></span><label>Seconds</label></div>
       </div>
-      <p class="count-date">Saturday, 28th November 2026 · St. Anthony Catholic Church Bremang, Suame-Kumasi</p>
+      <p class="count-date">Saturday, 28th November 2026 at 11:00 am · St. Anthony Catholic Church Bremang, Suame-Kumasi</p>
     </div>
   </section>
 
@@ -460,7 +467,7 @@ footer p{margin:.3rem 0;opacity:.8}
           <p>It wasn't until 2019, when I invited him to a church programme in Kumasi, that we finally stood in the same room. Meeting in person didn't feel like meeting a stranger; it felt like stepping into a life we'd already spent years building together.</p>
           <p>Neither of us can pinpoint the exact moment friendship turned into forever. There was no grand speech or sudden shift, just two people continuously choosing each other, falling deeper into a connection that was effortlessly real and mutual.</p>
           <p>If someone had told me ten years ago that my coolest friend would one day become my husband, I wouldn't have believed them. Yet here we are, sealing a bond built on patience, faith, and time. God made a way for us, and I am blessed to love him more with every passing day.</p>
-          <p class="byline">Priscilla</p>
+          <p class="byline">Priscilla Birago</p>
         </article>
       </div>
 
@@ -495,6 +502,16 @@ footer p{margin:.3rem 0;opacity:.8}
       <h2 class="h-script">Schedule</h2>
       <p class="lede">Three days of celebration in Kumasi</p>
       <div class="events" id="events"></div>
+      <div class="program-card">
+        <img src="program-qr.svg" alt="QR code linking to the traditional wedding programme">
+        <div>
+          <h3>Traditional wedding programme</h3>
+          <p>Scan the QR code or open the full ceremony order.</p>
+          <a href="program.html">View the programme</a>
+          <span aria-hidden="true"> · </span>
+          <a href="program-qr.svg" download>Download QR code</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -530,7 +547,7 @@ footer p{margin:.3rem 0;opacity:.8}
         <div class="qa-item">
           <button class="qa-q" aria-expanded="false">I'd like to give a cash gift. How?<span class="pm" aria-hidden="true"></span></button>
           <div class="qa-a"><div>
-            <p>Thank you, that's very kind. You can send it by Mobile Money to Priscilla, using the reference <strong>OP WEDDING</strong>.</p>
+            <p>Thank you, that's very kind. You can send it by Mobile Money to Priscilla Birago, using the reference <strong>OP WEDDING</strong>.</p>
             <div class="gift"><div><b>024 623 9784</b><span>Priscilla Birago Boachie · MoMo</span></div><button class="copy" data-copy="0246239784">Copy</button></div>
           </div></div>
         </div>
@@ -551,8 +568,8 @@ footer p{margin:.3rem 0;opacity:.8}
 
   <footer>
     <div class="f-mono">O&amp;P</div>
-    <p class="f-names">Obeng-Akrofi &amp; Priscilla</p>
-    <p>Obeng-Akrofi Anim &amp; Priscilla Boachie</p>
+    <p class="f-names">Obeng-Akrofi &amp; Priscilla Birago</p>
+    <p>Obeng-Akrofi Anim &amp; Priscilla Birago Boachie</p>
     <p>#ForeverOP</p>
     <p>27 – 29 November 2026 · Kumasi</p>
   </footer>
@@ -575,13 +592,13 @@ const PHOTOS = [
   {src:"photos/05-ring.jpeg", pos:"50% 48%", label:"The ring"}
 ];
 /* -------- EDIT ME: events -------- */
-const WEDDING = new Date("2026-11-28T09:00:00Z"); // Ghana is GMT
+const WEDDING = new Date("2026-11-28T11:00:00Z"); // Ghana is GMT
 const CHURCH = {name:"St. Anthony Catholic Church Bremang", area:"Box SE 772, Suame-Kumasi"};
 const EVENTS = [
-  {title:"Traditional marriage", dw:"Friday", dd:"27", dm:"Nov 2026", time:"11:00 am", venue:"Afrancho", area:"AF-0239-8090",
-   start:"20261127T110000Z", end:"20261127T160000Z"},
-  {title:"White wedding", dw:"Saturday", dd:"28", dm:"Nov 2026", time:"9:00 am", venue:CHURCH.name, area:CHURCH.area, feature:true,
-   start:"20261128T090000Z", end:"20261128T123000Z"},
+  {title:"Traditional marriage", dw:"Friday", dd:"27", dm:"Nov 2026", time:"12:00 noon", venue:"Afrancho", area:"AF-0239-8090",
+   start:"20261127T120000Z", end:"20261127T160000Z"},
+  {title:"White wedding", dw:"Saturday", dd:"28", dm:"Nov 2026", time:"11:00 am", venue:CHURCH.name, area:CHURCH.area, feature:true,
+   start:"20261128T110000Z", end:"20261128T143000Z"},
   {title:"Reception", dw:"Saturday", dd:"28", dm:"Nov 2026", time:"1:00 pm", venue:"Church compound, "+CHURCH.name, area:CHURCH.area,
    start:"20261128T130000Z", end:"20261128T180000Z"},
   {title:"Thanksgiving service", dw:"Sunday", dd:"29", dm:"Nov 2026", time:"Time to be announced", venue:CHURCH.name, area:CHURCH.area,
@@ -608,7 +625,7 @@ document.querySelectorAll('.arch').forEach(b=>b.addEventListener('click',()=>cop
 const hn = document.getElementById('heroNames');
 let i=0;
 function spanify(str){return [...str].map(c=>c===' '?' ':`<span class="ch" style="--i:${i++}">${c}</span>`).join('')}
-hn.innerHTML = spanify('Obeng-Akrofi') + `<span class="ch amp" style="--i:${i++}">&amp;</span>` + '<br>' + spanify('Priscilla');
+hn.innerHTML = spanify('Obeng-Akrofi') + `<span class="ch amp" style="--i:${i++}">&amp;</span>` + '<br>' + spanify('Priscilla Birago');
 
 /* ---------- slideshow ---------- */
 const slidesEl=document.getElementById('slides'), dotsEl=document.getElementById('dots');
@@ -732,7 +749,7 @@ document.fonts && document.fonts.ready.then(place); addEventListener('resize',pl
 const icClock='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
 const icPin='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
 const mapsUrl=e=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(e.venue+', '+e.area+', Ghana');
-const calUrl=e=>'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(e.title+' · Obeng-Akrofi & Priscilla')+'&dates='+e.start+'/'+e.end+'&location='+encodeURIComponent(e.venue+', '+e.area)+'&details='+encodeURIComponent('#ForeverOP');
+const calUrl=e=>'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(e.title+' · Obeng-Akrofi & Priscilla Birago')+'&dates='+e.start+'/'+e.end+'&location='+encodeURIComponent(e.venue+', '+e.area)+'&details='+encodeURIComponent('#ForeverOP');
 document.getElementById('events').innerHTML=EVENTS.map(e=>`
   <article class="event${e.feature?' feature':''}">
     <div class="date-block"><div class="dw">${e.dw}</div><div class="dd">${e.dd}</div><div class="dm">${e.dm}</div></div>
